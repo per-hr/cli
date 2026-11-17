@@ -10,6 +10,8 @@ npx perhr setup
 
 Setup signs this computer in (you approve a code at per.hr/device), then walks through your business, how clients pay you, your first client and project, the Claude Code plugin, and linking your code folders. Progress is saved on your account, so you can stop and pick it up on any computer.
 
+The Claude Code step installs the per.hr plugin and, with your OK, adds per.hr's rules to your Claude Code settings: reads run without asking, and every change shows Claude Code's own prompt with the full command. It also adds per.hr's status line (the Plan item, today's hours and anything waiting) when you don't have one yet. Your previous settings file is saved beside it as `settings.json.perhr-backup`.
+
 ## Commands
 
 | | |
@@ -28,6 +30,7 @@ Setup signs this computer in (you approve a code at per.hr/device), then walks t
 | `perhr review` | To Review: `confirm`, `dismiss`, `undo` |
 | `perhr invoice list`, `new`, `preview`, `open`, `mark-sent`, `mark-paid` | Invoices (`open` shows it in per.hr, with the PDF) |
 | `perhr start`, `pause`, `resume`, `end`, `done`, `note` | The session in this folder |
+| `perhr statusline` | One line for Claude Code's status line |
 
 Every command takes `--json`. Writes take `--dry-run`.
 
@@ -47,7 +50,9 @@ When Claude runs a `perhr` command, its output enters the conversation. Typing `
 
 ## What's stored on this computer
 
-`~/.perhr/credentials.json` holds this computer's key, readable only by you. Disconnect it any time with `perhr logout`, or from per.hr under Configure → Developers.
+`~/.perhr/credentials.json` holds this computer's key, readable only by you. Disconnect it any time with `perhr logout`, or from per.hr under Configure → Developers. A key from before the CLI (the plugin's settings or `~/.perhr/key`) keeps working until this computer signs in.
+
+The Claude Code plugin keeps each repo folder's current session in `~/.perhr/state/`, and events waiting for per.hr in `~/.perhr/queue.jsonl` when it can't be reached.
 
 ## Requirements
 

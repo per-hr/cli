@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { ApiError, exitCodeOf, VERSION } from "../lib/api.js";
+import { ApiError, exitCodeOf, setRepo, VERSION } from "../lib/api.js";
 import { COMMANDS, SESSION, session } from "../lib/commands.js";
 import { closeQuestions, cyan, dim, err, out, parseArgs, red, UsageError } from "../lib/ui.js";
 
@@ -32,6 +32,8 @@ Docs: ${"https://per.hr/docs/claude-code"}`;
 async function main() {
   const argv = process.argv.slice(2);
   const { flags, pos } = parseArgs(argv);
+  // --repo <folder>: the session-start note gives Claude this, so a command lands on the right session from any folder
+  if (typeof flags.repo === "string" && ["start", "pause", "resume", "end", "done", "note", "status"].includes(pos[0])) setRepo(flags.repo);
   const [cmd, ...rest] = pos;
   if (flags.version || cmd === "version") return out(VERSION);
   if (!cmd || flags.help || cmd === "help") return out(HELP);
