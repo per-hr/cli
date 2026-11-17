@@ -28,11 +28,16 @@ The Claude Code step installs the per.hr plugin and, with your OK, adds per.hr's
 | `perhr time list`, `log` | Time |
 | `perhr plan list`, `add` | Plan items |
 | `perhr review` | To Review: `confirm`, `dismiss`, `undo` |
-| `perhr invoice list`, `new`, `preview`, `open`, `mark-sent`, `mark-paid` | Invoices (`open` shows it in per.hr, with the PDF) |
+| `perhr invoice list`, `new`, `preview`, `open`, `send`, `mark-sent`, `mark-paid` | Invoices (`open` shows it in per.hr, with the PDF) |
+| `perhr estimate list`, `preview`, `open`, `send` | Estimates |
 | `perhr start`, `pause`, `resume`, `end`, `done`, `note` | The session in this folder |
 | `perhr statusline` | One line for Claude Code's status line |
 
 Every command takes `--json`. Writes take `--dry-run`.
+
+## Sending
+
+`perhr invoice send INV-0042` (or several, or `--all-ready` for every draft) previews each one and runs the same checks as Send in per.hr, then gives you a link: you approve the send on per.hr in your browser, on any device where you're signed in, with a checkbox for each invoice. Nothing goes out until you do, and anything that changed since its preview has to be previewed again. `--test` sends the exact email to you only, with no approval. Estimates work the same way with `perhr estimate send`.
 
 Exit codes: `0` done, `1` error, `2` usage, `3` sign in first, `4` waiting on setup or approval, `5` not found.
 
