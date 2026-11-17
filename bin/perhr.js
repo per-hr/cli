@@ -21,7 +21,7 @@ Work
   perhr time list | log <hours> --project <name>
   perhr plan list | add <title> --project <name> [--estimate 2]
   perhr review | review confirm <id> | dismiss <id> | undo <id>
-  perhr invoice list | new <client> | preview <INV> | open <INV> | send <INV…> | mark-sent | mark-paid
+  perhr invoice list | new <client> | preview <INV> | open <INV> | send <INV…> | remind <INV> | mark-sent | mark-paid
   perhr estimate list | preview <EST> | open <EST> | send <EST>
 
 Sessions (also /perhr:start and the rest in Claude Code)
