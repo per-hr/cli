@@ -18,6 +18,7 @@ The Claude Code step installs the per.hr plugin and, with your OK, adds per.hr's
 |---|---|
 | `perhr setup`, `perhr setup status` | Set up per.hr for AI; see what's left |
 | `perhr login`, `logout`, `whoami` | Sign this computer in or out |
+| `perhr uninstall` | Take per.hr off this computer: the key, the plugin, its rules and compute in your Claude Code settings, and `~/.perhr`. Your account and data stay |
 | `perhr status` | The session recording now, today's hours, and anything waiting |
 | `perhr doctor` | Check the key, setup and the connection |
 | `perhr keys` | Computers and keys signed in to per.hr; `perhr keys disconnect <id>` |
@@ -65,6 +66,8 @@ When Claude runs a `perhr` command, its output enters the conversation. Typing `
 `~/.perhr/credentials.json` holds this computer's key, readable only by you. Disconnect it any time with `perhr logout`, or from per.hr under Configure → Developers. A key from before the CLI (the plugin's settings or `~/.perhr/key`) keeps working until this computer signs in.
 
 The Claude Code plugin keeps each repo folder's current session in `~/.perhr/state/`, and events waiting for per.hr in `~/.perhr/queue.jsonl` when it can't be reached.
+
+With your OK, setup also adds compute (cost, tokens, models, commits) to your Claude Code settings, using this computer's key. `perhr uninstall` removes everything setup added and saves your previous settings file beside it as `settings.json.perhr-backup`.
 
 ## Requirements
 
