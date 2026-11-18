@@ -30,6 +30,9 @@ The Claude Code step installs the per.hr plugin and, with your OK, adds per.hr's
 | `perhr review` | To Review: `confirm`, `dismiss`, `undo` |
 | `perhr invoice list`, `new`, `preview`, `open`, `send`, `remind`, `mark-sent`, `mark-paid` | Invoices (`open` shows it in per.hr, with the PDF) |
 | `perhr estimate list`, `preview`, `open`, `send` | Estimates |
+| `perhr team list`, `invite`, `cancel`, `role`, `hours`, `remove` | A team's people and invites (owners and admins change them) |
+| `perhr timesheets`, `approve`, `send-back`, `reopen`, `submit`, `withdraw` | The week's timesheets |
+| `perhr pay`, `pay file`, `pay open` | What's due, the PayPal payouts file to upload yourself, and the Pay page |
 | `perhr start`, `pause`, `resume`, `end`, `done`, `note` | The session in this folder |
 | `perhr statusline` | One line for Claude Code's status line |
 
@@ -40,6 +43,10 @@ Every command takes `--json`. Writes take `--dry-run`.
 `perhr invoice send INV-0042` (or several, or `--all-ready` for every draft) previews each one and runs the same checks as Send in per.hr, then gives you a link: you approve the send on per.hr in your browser, on any device where you're signed in, with a checkbox for each invoice. Nothing goes out until you do, and anything that changed since its preview has to be previewed again. `--test` sends the exact email to you only, with no approval. Estimates work the same way with `perhr estimate send`, and payment reminders with `perhr invoice remind INV-0042` (it shows how long the invoice has waited; one reminder per invoice every 3 days).
 
 Exit codes: `0` done, `1` error, `2` usage, `3` sign in first, `4` waiting on setup or approval, `5` not found.
+
+## Teams
+
+In a team, run `perhr workspace use "<team name>"` first (or work in a repo linked to one of the team's projects). Everyone signs their own computer in with `perhr login`; each repo records to the workspace where it's linked. Owners and admins manage the team; members see their own time and submit their week. per.hr keeps the pay record and never moves money: `perhr pay file` saves the PayPal payouts file for you to upload, and you mark people paid on per.hr's Pay page.
 
 ## Inside Claude Code
 

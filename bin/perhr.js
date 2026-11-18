@@ -24,6 +24,11 @@ Work
   perhr invoice list | new <client> | preview <INV> | open <INV> | send <INV…> | remind <INV> | mark-sent | mark-paid
   perhr estimate list | preview <EST> | open <EST> | send <EST>
 
+Teams (in a team: perhr workspace use <team>)
+  perhr team list | invite <email> --role member|admin|viewer | cancel <email> | role <person> <role> | remove <person>
+  perhr timesheets [--week YYYY-MM-DD] | approve <person> | approve --all | send-back <person> --note … | submit
+  perhr pay | pay file [--out payouts.csv] | pay open
+
 Sessions (also /perhr:start and the rest in Claude Code)
   perhr start <Plan item> | pause | resume | end | done | note <text>
 
