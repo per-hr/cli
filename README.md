@@ -63,7 +63,7 @@ When Claude runs a `perhr` command, its output enters the conversation. Typing `
 
 ## What's stored on this computer
 
-`~/.perhr/credentials.json` holds this computer's key, readable only by you. Disconnect it any time with `perhr logout`, or from per.hr under Configure → Developers. A key from before the CLI (the plugin's settings or `~/.perhr/key`) keeps working until this computer signs in.
+`~/.perhr/credentials.json` holds this computer's key, readable only by you. Disconnect it any time with `perhr logout`, or from per.hr under Configure → per.hr for AI. A key from before the CLI (the plugin's settings or `~/.perhr/key`) keeps working until this computer signs in.
 
 The Claude Code plugin keeps each repo folder's current session in `~/.perhr/state/`, and events waiting for per.hr in `~/.perhr/queue.jsonl` when it can't be reached.
 
