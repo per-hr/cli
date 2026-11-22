@@ -21,6 +21,7 @@ The Claude Code step installs the per.hr plugin and, with your OK, adds per.hr's
 | `perhr uninstall` | Take per.hr off this computer: the key, the plugin, its rules and compute in your Claude Code settings, and `~/.perhr`. Your account and data stay |
 | `perhr status` | The session recording now, today's hours, and anything waiting |
 | `perhr doctor` | Check the key, setup and the connection |
+| `perhr update` | Install a newer perhr now, or turn daily updates on or off (`perhr update --on` / `--off`) |
 | `perhr keys` | Computers and keys signed in to per.hr; `perhr keys disconnect <id>` |
 | `perhr workspace use <name>` | Choose the workspace for folders that aren't linked |
 | `perhr client list`, `add`, `show`, `edit`, `emails`, `archive` | Clients, their addresses and how AI work is billed |
@@ -28,7 +29,7 @@ The Claude Code step installs the per.hr plugin and, with your OK, adds per.hr's
 | `perhr repo list`, `link` | Which project each code folder records to |
 | `perhr time list`, `log` | Time |
 | `perhr plan list`, `add` | Plan items |
-| `perhr review` | To Review: `confirm`, `dismiss`, `undo` |
+| `perhr review` | Review: `confirm`, `dismiss`, `undo` |
 | `perhr invoice list`, `new`, `preview`, `open`, `send`, `remind`, `mark-sent`, `mark-paid` | Invoices (`open` shows it in per.hr, with the PDF) |
 | `perhr estimate list`, `preview`, `open`, `send` | Estimates |
 | `perhr team list`, `invite`, `cancel`, `role`, `hours`, `remove` | A team's people and invites (owners and admins change them) |
