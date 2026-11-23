@@ -1,26 +1,29 @@
 # perhr
 
-Bill clients for your Claude Code work, from the terminal.
+Bill clients for your Claude Code and Codex work, from the terminal.
 
-`perhr` is the per.hr CLI. It sets up [per.hr for AI](https://per.hr/ai), records your Claude Code sessions to the right client and project, and turns confirmed work into invoices, with the same checks as per.hr in your browser.
+`perhr` is the per.hr CLI. It sets up [per.hr for AI](https://per.hr/ai), records your Claude Code and Codex sessions to the right client and project, and turns confirmed work into invoices, with the same checks as per.hr in your browser.
 
 ```
 npx perhr setup
 ```
 
-Setup signs this computer in (you approve a code at per.hr/device), then walks through your business, how clients pay you, your first client and project, the Claude Code plugin, and linking your code folders. Progress is saved on your account, so you can stop and pick it up on any computer.
+Setup signs this computer in (you approve a code at per.hr/device), then walks through your business, how clients pay you, your first client and project, the Claude Code plugin, Codex if you use it, and linking your code folders. Progress is saved on your account, so you can stop and pick it up on any computer.
 
 The Claude Code step installs the per.hr plugin and, with your OK, adds per.hr's rules to your Claude Code settings: reads run without asking, and every change shows Claude Code's own prompt with the full command. It also adds per.hr's status line (the Plan item, today's hours and anything waiting) when you don't have one yet. Your previous settings file is saved beside it as `settings.json.perhr-backup`.
+
+The Codex step adds per.hr's hooks to Codex's `hooks.json`; the previous file is saved beside it as `hooks.json.perhr-backup`. The next time you start Codex, it shows Hooks need review: look over what each one runs and press `t` to approve them. per.hr records from then on. On a computer that's already set up, `perhr setup --step codex` adds Codex, and `perhr setup --step codex --remove` takes per.hr's hooks out and leaves any others in place. More: [per.hr With Codex](https://per.hr/ai/codex).
 
 ## Commands
 
 | | |
 |---|---|
 | `perhr setup`, `perhr setup status` | Set up per.hr for AI; see what's left |
+| `perhr setup --step codex` | Add per.hr's hooks to Codex; `--remove` takes them out |
 | `perhr login`, `logout`, `whoami` | Sign this computer in or out |
-| `perhr uninstall` | Take per.hr off this computer: the key, the plugin, its rules and compute in your Claude Code settings, and `~/.perhr`. Your account and data stay |
+| `perhr uninstall` | Take per.hr off this computer: the key, the plugin, its rules and compute in your Claude Code settings, per.hr's hooks in Codex, and `~/.perhr`. Your account and data stay |
 | `perhr status` | The session recording now, today's hours, and anything waiting |
-| `perhr doctor` | Check the key, setup and the connection |
+| `perhr doctor` | Check the key, setup and the connection, and whether Codex has run per.hr's hooks |
 | `perhr update` | Install a newer perhr now, or turn daily updates on or off (`perhr update --on` / `--off`) |
 | `perhr keys` | Computers and keys signed in to per.hr; `perhr keys disconnect <id>` |
 | `perhr workspace use <name>` | Choose the workspace for folders that aren't linked |
@@ -68,8 +71,10 @@ When Claude runs a `perhr` command, its output enters the conversation. Typing `
 
 The Claude Code plugin keeps each repo folder's current session in `~/.perhr/state/`, and events waiting for per.hr in `~/.perhr/queue.jsonl` when it can't be reached.
 
+The Codex hook is a copy of per.hr's script in `~/.perhr/codex/`. It sends what the plugin sends (the session, its times, the repo and branch), Codex's token counts by model, and the `per.hr note:` line Codex ends a reply with, which becomes the session's summary. Your prompts, your code and the rest of Codex's replies stay on your computer. Token counts wait in `~/.perhr/codex-usage/` until the turn ends.
+
 With your OK, setup also adds compute (cost, tokens, models, commits) to your Claude Code settings, using this computer's key. `perhr uninstall` removes everything setup added and saves your previous settings file beside it as `settings.json.perhr-backup`.
 
 ## Requirements
 
-Node 18.17 or later. macOS, Linux and Windows.
+Node 18.17 or later. macOS, Linux and Windows. Codex recording has been run on Windows so far.
