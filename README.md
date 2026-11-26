@@ -25,6 +25,7 @@ The Codex step adds per.hr's hooks to Codex's `hooks.json`; the previous file is
 | `perhr status` | The session recording now, today's hours, and anything waiting |
 | `perhr doctor` | Check the key, setup and the connection, and whether Codex has run per.hr's hooks |
 | `perhr update` | Install a newer perhr now, or turn daily updates on or off (`perhr update --on` / `--off`) |
+| `perhr desktop` | Install per.hr Desktop, the tray (Windows) or menu bar (Mac) app with today's time and your agents, on a computer signed in to per.hr. `--check` shows the installed and newest versions. The app updates itself after that |
 | `perhr keys` | Computers and keys signed in to per.hr; `perhr keys disconnect <id>` |
 | `perhr workspace use <name>` | Choose the workspace for folders that aren't linked |
 | `perhr client list`, `add`, `show`, `edit`, `emails`, `archive` | Clients, their addresses and how AI work is billed |
