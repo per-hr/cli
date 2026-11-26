@@ -14,6 +14,16 @@ The Claude Code step installs the per.hr plugin and, with your OK, adds per.hr's
 
 The Codex step adds per.hr's hooks to Codex's `hooks.json`; the previous file is saved beside it as `hooks.json.perhr-backup`. The next time you start Codex, it shows Hooks need review: look over what each one runs and press `t` to approve them. per.hr records from then on. On a computer that's already set up, `perhr setup --step codex` adds Codex, and `perhr setup --step codex --remove` takes per.hr's hooks out and leaves any others in place. More: [per.hr With Codex](https://per.hr/ai/codex).
 
+## per.hr Desktop
+
+Today's time and your agents in the system tray (Windows) or menu bar (Mac), with a notice when an agent waits on you or a session is ready for Review. On a computer signed in to per.hr, run:
+
+```
+npx perhr@latest desktop
+```
+
+`perhr setup` offers it too. It keeps itself, the per.hr CLI and the Claude Code plugin up to date. `perhr desktop --check` shows the installed and newest versions.
+
 ## Commands
 
 | | |
