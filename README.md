@@ -24,6 +24,10 @@ npx perhr@latest desktop
 
 `perhr setup` offers it too. It keeps itself, the per.hr CLI and the Claude Code plugin up to date. `perhr desktop --check` shows the installed and newest versions.
 
+## A Client's Own Payment Details
+
+By default every client's invoices show your payment details from per.hr (Configure → Get Paid). A client can have its own instead, such as a different bank account. `perhr client add` asks, in your own terminal, whether the new client uses your defaults; answer no to enter its own. `perhr client edit <client> --payment` changes them later, and `perhr client show` says which set applies. These are typed at the keyboard only: when Claude Code or a script runs perhr, it never asks for them or shows them, the same as rates. Or use Edit Client → Payment Details in per.hr.
+
 ## Commands
 
 | | |
